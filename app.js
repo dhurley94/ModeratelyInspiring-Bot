@@ -5,7 +5,7 @@ var alex = require('alex')
 var channel = 'admins';
 
 var bot = new SlackBot({
-    token: 'xoxp-6043592625-80785343623-117647259191-70ec1923c29dd4796a7dbbd5d105aaac',
+    token: '',
     name: 'not_poindexter'
 })
 
