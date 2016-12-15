@@ -1,15 +1,7 @@
 var SlackBot = require('slackbots')
-var fs = require('fs')
-var alex = require('alex')
 var http = require('http')
 var req = require('request')
-var bodyParser = require('body-parser');
 var channel = '2eztest'
-var params = { icon_emoji: ':apace:' }
-
-const server = http.createServer((req, res) => {
-  res.end();
-})
 
 var bot = new SlackBot({
     token: '<YOUR API KEY HERE>',
@@ -20,13 +12,15 @@ function isMsg(data) {
     if (data.type == "message") { return true } else { return false }
 }
 
+var params = { icon_emoji: ':apace:' }
+
 bot.on('start', function(err, data) {
-    if (!err) {
-        if (bot.getChannel(channel)) {
-            bot.postMessageToChannel(channel, '', params)
-        }
-    } else {
+    if (err) {
         console.log('Failed to connect to Slack server.')
+    } else {
+        if (bot.getChannel(channel)) {
+            bot.postMessageToChannel(channel, 'Initializing node.js bot.', params)
+        }
     }
 })
 
