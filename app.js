@@ -1,7 +1,7 @@
 var SlackBot = require('slackbots')
 var http = require('http')
 var req = require('request')
-var channel = '2eztest'
+var channel = '<YOUR CHANNEL>'
 
 var bot = new SlackBot({
     token: '<YOUR API KEY HERE>',
@@ -12,7 +12,7 @@ function isMsg(data) {
     if (data.type == "message") { return true } else { return false }
 }
 
-var params = { icon_emoji: ':apace:' }
+var params = { icon_emoji: ':cat:' }
 
 bot.on('start', function(err, data) {
     if (err) {
