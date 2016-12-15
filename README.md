@@ -5,8 +5,6 @@ a repo with data not containing poindexter<br />
 <h1>.rquote</h1>
 <p>GET requests random inspirobot image and posts to specified slack channel</p>
 
-<h1>//TODO</h1>
-	.triggered
-	takes last user's input and runs it through alex.js
-	
-	
+<h1>TODO</h1>
+	.triggered [string] || [user]
+	takes last specified user's string or a specified string and outputs message from alex.js
