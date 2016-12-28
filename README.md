@@ -14,3 +14,6 @@ a repo with data not containing poindexter<br />
 	
 	.quote [user]
 	writes random quote from specified user based on which channel (tbl) the user used .quote
+	
+	.spaghetti [spaghetti]
+	takes spaghetti as input and writes spaghetti
