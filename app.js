@@ -6,8 +6,8 @@ var SlackBot = require('slackbots')
  , alex = require('alex')
 
 var bot = new SlackBot({
-    token: '<YOUR API KEY>',
-    name: 'not_poindexter'
+    token: '<YOUR API TOKEN>',
+    name: 'InspiroBoterino'
 })
 
 function isMsg(data) {
@@ -27,7 +27,7 @@ bot.on('start', function(err, data) {
 })
 
 bot.on('message', function(data, input) {
-        if (data.text.toLowerCase() == '.rquote') {
+        if (data.text == '.rquote' || data.text == '.inspire') {
             require('http').get('http://inspirobot.me/api?generate=true', (res) => {
                 res.setEncoding('utf8');
                 res.on('data', function (body) {
@@ -36,8 +36,7 @@ bot.on('message', function(data, input) {
                 });
             });
         }
-    }
-})
+    })
 
 bot.on('close', function(err, data) {
     console.log('Bot is dying.')
