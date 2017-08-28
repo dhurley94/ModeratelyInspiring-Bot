@@ -1,4 +1,4 @@
-# not_poindexter
+# ModeratelyInspiring-Bot
 a repo with data not containing poindexter<br />
 <br />
 # functions
