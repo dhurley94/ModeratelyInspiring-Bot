@@ -4,10 +4,10 @@ var req = require('request');
 var request = require('request');
 var alex = require('alex');
 
-var channel = ('');
+var channel = ('<SLACK-CHANNEL>');
 
 var bot = new SlackBot({
-   token: '',
+   token: '<WEB TOKEN>',
    name: 'InspiroBoterino'
 });
 
