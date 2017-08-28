@@ -1,9 +1,10 @@
 var SlackBot = require('slackbots');
 var http = require('http');
 var req = require('request');
-var channel = ('');
 var request = require('request');
 var alex = require('alex');
+
+var channel = ('');
 
 var bot = new SlackBot({
    token: '',
