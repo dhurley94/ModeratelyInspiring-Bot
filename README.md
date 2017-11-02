@@ -9,8 +9,6 @@ a repo with data not containing poindexter<br />
 <p>GET requests an inspirational quote from API</p>
 
 <h1>TODO</h1>
-	.triggered [string] || [user]
-	takes last specified user's string or a specified string and outputs message from alex.js
 
 	.squote [user]
 	saves last specified user's message to db table the corresponds to the channel message was posted in
