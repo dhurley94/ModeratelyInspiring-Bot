@@ -3,12 +3,13 @@ var http = require('http')
 var req = require('request')
 var request = require('request')
 var alex = require('alex');
+var keys = require('./configs/authentication');
 
-var channel = ('<SLACK-CHANNEL>');
+var channel = (keys.slack.channel);
 
 var bot = new SlackBot({
-   token: '<WEB TOKEN>',
-   name: 'InspiroBoterino'
+   token: keys.slack.token,
+   name: keys.slack.name
 })
 
 var botParams = {
@@ -16,7 +17,7 @@ var botParams = {
 }
 
 function isMsg(data) {
-   if (data.type == "message") { return true } else { return false }
+   if (data.type === "message") { return true } else { return false }
 }
 
 bot.on('start', function(err, data) {
@@ -27,7 +28,7 @@ bot.on('start', function(err, data) {
 })
 
 bot.on('message', function(data, input) {
-  if (data.text == '.inspire') {
+  if (data.text === '.inspire') {
     require('http').get('http://inspirobot.me/api?generate=true', (res) => {
       res.setEncoding('utf8')
       res.on('data', function (body) {
@@ -36,19 +37,42 @@ bot.on('message', function(data, input) {
       })
     })
   }
-  if (data.text == '.rquote') {
+  if (data.text === '.rquote') {
     request.get('http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en', function(error, response, body) {
       if (error) { throw error }
         var quote = JSON.parse(body)
         quote = "> " + quote.quoteText + "\n - " + quote.quoteAuthor;
         console.log(quote)
         bot.postMessageToChannel(channel, quote, botParams)
-  })
+    })
   }
-  if (data.text == '.help') {
+  if(data.text === '.drunkspire') {
+    let auth_secrets =  {
+       id: keys.imgur.id,
+       secret: keys.imgur.secret
+    }
+    let album = keys.imgur.album;
+
+    request.get({
+      headers: {
+        auth_secrets
+      },
+      album,
+      method="GET"
+    },
+    function(error, response, body) {
+      if (error) throw new error;
+      console.log(response, body);
+    });
+
+  }
+  if (data.text === '.help') {
+    bot.postMessageToChannel(channel, "No.", botParams)
+  }
+  if (data.text === '.help') {
          bot.postMessageToChannel(channel, "No.", botParams)
   }
-  if (data.text == '.src') {
+  if (data.text === '.src') {
     bot.postMessageToChannel(channel, "https://github.com/dhurley94/ModeratelyInspiring-Bot", botParams)
   }
 })
