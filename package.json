@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "alex": "^4.0.1",
+    "alex": "^4.1.0",
     "jshint": "^2.9.5",
     "nodemon": "^1.12.1",
     "slackbots": "^0.5.3"
