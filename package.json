@@ -11,7 +11,7 @@
   "dependencies": {
     "alex": "^4.0.1",
     "jshint": "^2.9.5",
-    "nodemon": "^1.12.1",
+    "nodemon": "^2.0.3",
     "slackbots": "^0.5.3"
   }
 }
